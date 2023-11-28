@@ -1,0 +1,17 @@
+Voici une explication ligne par ligne du code permettant le cryptage et le décryptage d'un message avec le chiffrement de cesar
+
+string CaesarCryptage(string message, int dec) { : Définit une fonction pour chiffrer le message avec le décalage 'dec'.
+
+string result = ""; : Initialise une chaîne de caractères vide pour stocker le résultat du chiffrement.
+
+for (char& c : message) { : Débute une boucle pour chaque caractère dans le message fourni par l'utilisateur.
+
+if (isalpha(c)) { : Vérifie si le caractère est alphabétique.
+
+char lettre = (c - 'a' + dec) % 26 + 'a'; : Applique le décalage de César à chaque caractère alphabétique du message.
+
+result += lettre; : Ajoute le caractère chiffré au résultat.
+
+} else { result += c; } : Si le caractère n'est pas alphabétique, il est conservé tel quel.
+
+return result; : Renvoie le message chiffré.
