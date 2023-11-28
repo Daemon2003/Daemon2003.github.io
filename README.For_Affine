@@ -1,0 +1,27 @@
+Voici une explication ligne par ligne du code permettant de crypter et de décrypter un message a l'aide du chiffrement par affine
+
+int Inverse(int a, int m) { : Définit une fonction pour calculer l'inverse modulaire de 'a' modulo 'm'.
+
+a = a % m; : Assure que 'a' est dans la plage de 0 à m-1.
+
+for (int x = 1; x < m; x++) : Itère à travers les valeurs possibles pour trouver l'inverse modulaire.
+
+if ((a * x) % m == 1) : Vérifie si 'x' est l'inverse modulaire de 'a' modulo 'm'.
+
+return x; : Renvoie l'inverse modulaire trouvé, ou -1 s'il n'existe pas.
+
+string CryptageAffine(string message, int a, int b) { : Définit une fonction pour chiffrer le message avec les clés 'a' et 'b'.
+
+int m = 26; : Définit la taille de l'alphabet anglais (26 lettres).
+
+for (char& c : message) { : Débute une boucle pour chaque caractère dans le message fourni par l'utilisateur.
+
+if (isalpha(c)) { : Vérifie si le caractère est alphabétique.
+
+char lettre = ((a * (c - 'a') + b) % m) + 'a'; : Applique le chiffrement affine à chaque caractère alphabétique du message.
+
+result += lettre; : Ajoute le caractère chiffré au résultat.
+
+} else { result += c; } : Si le caractère n'est pas alphabétique, il est conservé tel quel.
+
+return result; : Renvoie le message chiffré.
